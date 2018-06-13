@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : MonoBehaviour {
+public class Flying : MonoBehaviour {
+
+
 
     [Header("Settings")]
     public float StrafePower = 1000;
@@ -12,15 +15,16 @@ public class Ship : MonoBehaviour {
     public float StafeVerticalForce;
     public float StafeHorizontalForce;
     public Quaternion DesiredAngle;
-
-
+    
     Rigidbody _rigidBody;
 
-
+    public ParticleSystem _guns;
 
     // Use this for initialization
     void Start () {
         _rigidBody = this.GetComponent<Rigidbody>();
+     
+      
         DesiredAngle = new Quaternion(0, 0, 0, 1);
     }
 	
@@ -41,6 +45,8 @@ public class Ship : MonoBehaviour {
         //}
     }
 
+ 
+
     public void StrafeHorizontal(float power)
     {
         StafeHorizontalForce += StrafePower * Time.deltaTime*power;
@@ -58,10 +64,6 @@ public class Ship : MonoBehaviour {
 
         DesiredAngle= Quaternion.Euler(0, angle, 0);
         // r =Mathf.InverseLerp(0,360, angle);
-
-
-
-
     }
- 
+
 }
