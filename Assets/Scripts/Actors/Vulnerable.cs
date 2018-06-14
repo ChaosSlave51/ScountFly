@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vulnerable : MonoBehaviour, IStandardBehavior
+public class Vulnerable : MonoBehaviour, IStandardComponent
 {
 
     public float DamageBlinkRate = 2;
     public float MaxHealth = 100;
     public float Health=0;
+    
 
     private Flying _ship;
+
+    private Animator _animator;
 
     private const string DamageBlinkRateShaderField = "Vector1_3BE87725";
 
@@ -26,6 +29,8 @@ public class Vulnerable : MonoBehaviour, IStandardBehavior
         Health = MaxHealth;
 
         _ship = GetComponent<Flying>();
+
+        _animator = GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
@@ -41,10 +46,14 @@ public class Vulnerable : MonoBehaviour, IStandardBehavior
         var bullet = other.GetComponent<Damaging>();
         Health -= bullet.Damage;
 
-        if (Health <= 0)
-        {
-            gameObject.SetActive(false);
-        }
+        if(_animator!=null)
+            _animator.SetFloat("Health", Health);
+        
+        //if (Health <= 0)
+        //{
+        //    gameObject.SetActive(false);
+
+        //}
 
     }
 
@@ -62,11 +71,12 @@ public class Vulnerable : MonoBehaviour, IStandardBehavior
                     _material.SetFloat(DamageBlinkRateShaderField, DamageBlinkRate);
                    
                     Health -= damaging.Damage;
-
-                    if (Health <= 0)
-                    {
-                        gameObject.SetActive(false);
-                    }
+                    if (_animator != null)
+                        _animator.SetFloat("Health", Health);
+                    //if (Health <= 0)
+                    //{
+                    //    gameObject.SetActive(false);
+                    //}
                 }
             }
         }

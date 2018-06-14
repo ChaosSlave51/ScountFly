@@ -59,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DeathBehavior.cs" />
     <Compile Include="Assets\Scripts\Actors\Drivers\FollowByTurningDriver.cs" />
     <Compile Include="Assets\Scripts\Actors\Drivers\InputDriver.cs" />
     <Compile Include="Assets\Scripts\Actors\Flying.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Assets\Scripts\Damaging.cs" />
     <Compile Include="Assets\Scripts\FixParticle.cs" />
     <Compile Include="Assets\Scripts\LevelController.cs" />
+    <Compile Include="Assets\StandardBehavior.cs" />
     <Reference Include="com.unity.render-pipelines.core.Editor">
       <HintPath>E:/Programs/Programing/UnityGames/ScoutFly/ScoutFly/Library/ScriptAssemblies/com.unity.render-pipelines.core.Editor.dll</HintPath>
     </Reference>

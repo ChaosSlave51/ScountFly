@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-public interface IStandardBehavior 
+public interface IStandardComponent
 {
 
 

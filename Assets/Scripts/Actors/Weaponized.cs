@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weaponized : MonoBehaviour, IStandardBehavior
+public class Weaponized : MonoBehaviour, IStandardComponent
 {
     [Header("Components")]
     public ParticleSystem Guns;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputDriver : MonoBehaviour, IStandardBehavior
+public class InputDriver : MonoBehaviour, IStandardComponent
 {
     private Flying _flying;
     private Weaponized _weaponized;
