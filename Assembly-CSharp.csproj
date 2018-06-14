@@ -59,12 +59,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\FixParticle.cs" />
-    <Compile Include="Assets\Scripts\Bullet.cs" />
-    <Compile Include="Assets\Scripts\Flying.cs" />
-    <Compile Include="Assets\Scripts\InputDriver.cs" />
-    <Compile Include="Assets\Scripts\Weaponized.cs" />
-    <Compile Include="Assets\Vulnerable.cs" />
+    <Compile Include="Assets\Scripts\Actors\Drivers\FollowByTurningDriver.cs" />
+    <Compile Include="Assets\Scripts\Actors\Drivers\InputDriver.cs" />
+    <Compile Include="Assets\Scripts\Actors\Flying.cs" />
+    <Compile Include="Assets\Scripts\Actors\IMoving.cs" />
+    <Compile Include="Assets\Scripts\Actors\IStandardBehavior.cs" />
+    <Compile Include="Assets\Scripts\Actors\IWeaponized.cs" />
+    <Compile Include="Assets\Scripts\Actors\Vulnerable.cs" />
+    <Compile Include="Assets\Scripts\Actors\Weaponized.cs" />
+    <Compile Include="Assets\Scripts\Damaging.cs" />
+    <Compile Include="Assets\Scripts\FixParticle.cs" />
+    <Compile Include="Assets\Scripts\LevelController.cs" />
     <Reference Include="com.unity.render-pipelines.core.Editor">
       <HintPath>E:/Programs/Programing/UnityGames/ScoutFly/ScoutFly/Library/ScriptAssemblies/com.unity.render-pipelines.core.Editor.dll</HintPath>
     </Reference>
