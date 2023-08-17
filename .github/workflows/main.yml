@@ -17,6 +17,12 @@ jobs:
    strategy:
      fail-fast: false
    steps:
+     - name: list env
+       run: |
+           echo $UNITY_LICENSE
+           echo $UNITY_EMAIL
+           echo $UNITY_PASSWORD
+    
      - name: Checkout code
        uses: actions/checkout@v3
 
@@ -53,3 +59,35 @@ jobs:
        with:
          name: build-WebGL
          path: build/WebGL
+         
+ deployPages:
+   needs: buildWebGL
+   name: Deploy to Itch.io 🚀
+   runs-on: ubuntu-latest
+   steps:
+     - name: Checkout code
+       uses: actions/checkout@v3
+
+     - uses: actions/download-artifact@v2
+       with:
+         name: build-WebGL
+         path: build
+
+     - name: Display structure of root files
+       run: ls -R
+       working-directory: build/WebGL
+
+     - name: Deploy 🚀
+       uses: JamesIves/github-pages-deploy-action@4.1.4
+       with:
+         branch: itch-io
+         folder: build/WebGL
+         
+     - uses: manleydev/butler-publish-itchio-action@master
+       env:
+         BUTLER_CREDENTIALS: ${{ secrets.ITCH_IO_API_KEY }}
+         CHANNEL: HTML
+         ITCH_GAME: athena
+         ITCH_USER: chaosslave51gmailcom
+         BRANCH: master
+         PACKAGE: build/WebGL
